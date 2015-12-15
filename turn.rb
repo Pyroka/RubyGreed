@@ -8,11 +8,12 @@ module RubyGreed
       @ended = false
     end
 
-    def add_roll(roll)
-      @score += roll.score
-      if roll.num_dice_for_next_roll == 0
+    def add_score(score)
+      if score == 0
         @ended = true
         @score = 0
+      else
+        @score += score
       end
     end
 

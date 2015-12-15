@@ -1,5 +1,7 @@
 module RubyGreed
   class Roll
+    MAX_DICE = 5
+
     attr_reader :score
     attr_reader :num_dice_for_next_roll
 
@@ -24,7 +26,7 @@ module RubyGreed
       values_that_scored = values.select { |value| is_scoring_value(value) }
       case values_that_scored.length
         when values.length
-          values.length
+          MAX_DICE
         when 0
           0
         else

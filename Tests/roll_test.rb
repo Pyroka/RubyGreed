@@ -44,8 +44,9 @@ module RubyGreed
       assert_equal(1150, Roll.new([1, 1, 1, 5, 1]).score)
     end
 
-    def test_num_dice_for_next_roll_with_all_scoring_die_is_all_dice
-      assert_equal(5, Roll.new([1, 1, 1, 5, 5]).num_dice_for_next_roll)
+    def test_num_dice_for_next_roll_with_all_scoring_die_is_max_dice
+      assert_equal(Roll::MAX_DICE, Roll.new([1, 1, 1, 5, 5]).num_dice_for_next_roll)
+      assert_equal(Roll::MAX_DICE, Roll.new([1, 1, 1]).num_dice_for_next_roll)
     end
 
     def test_num_dice_for_next_roll_with_scoring_die_is_not_zero
