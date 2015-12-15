@@ -4,10 +4,6 @@ require '../roll'
 module RubyGreed
   class RollTest < Test::Unit::TestCase
 
-    def test_initialize_with_values_stores_values
-      assert_equal([1, 2, 3], Roll.new([1, 2, 3]).values)
-    end
-
     def test_score_of_an_empty_list_is_zero
       assert_equal(0, Roll.new([]).score)
     end
@@ -46,6 +42,14 @@ module RubyGreed
       assert_equal(1100, Roll.new([1, 1, 1, 1]).score)
       assert_equal(1200, Roll.new([1, 1, 1, 1, 1]).score)
       assert_equal(1150, Roll.new([1, 1, 1, 5, 1]).score)
+    end
+
+    def test_num_non_scoring_dice_with_all_scoring_die_is_zero
+      assert_equal(0, Roll.new([1, 1, 1, 5, 5]).num_non_scoring_dice)
+    end
+
+    def test_num_non_scoring_dice_with_scoring_die_is_not_zero
+      assert_equal(2, Roll.new([1, 1, 1, 2, 3]).num_non_scoring_dice)
     end
 
   end
