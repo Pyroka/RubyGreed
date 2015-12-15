@@ -5,6 +5,10 @@ module RubyGreed
     attr_reader :score
     attr_reader :num_dice_for_next_roll
 
+    def self.from_dice(number_of_dice)
+      Roll.new((1..number_of_dice).map { |die| rand (1..6) })
+    end
+
     def initialize(values)
       roll_to_counts = Hash.new(0)
       values.each { |value| roll_to_counts[value] += 1 }
