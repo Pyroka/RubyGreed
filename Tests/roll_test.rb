@@ -1,5 +1,5 @@
 require 'test/unit'
-require '../roll'
+require File.expand_path('../roll')
 
 module RubyGreed
   class RollTest < Test::Unit::TestCase

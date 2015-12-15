@@ -1,5 +1,5 @@
 require 'test/unit'
-require '../turn'
+require File.expand_path('../turn')
 
 module RubyGreed
   class TurnTest < Test::Unit::TestCase
