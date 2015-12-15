@@ -44,12 +44,16 @@ module RubyGreed
       assert_equal(1150, Roll.new([1, 1, 1, 5, 1]).score)
     end
 
-    def test_num_non_scoring_dice_with_all_scoring_die_is_zero
-      assert_equal(0, Roll.new([1, 1, 1, 5, 5]).num_non_scoring_dice)
+    def test_num_dice_for_next_roll_with_all_scoring_die_is_all_dice
+      assert_equal(5, Roll.new([1, 1, 1, 5, 5]).num_dice_for_next_roll)
     end
 
-    def test_num_non_scoring_dice_with_scoring_die_is_not_zero
-      assert_equal(2, Roll.new([1, 1, 1, 2, 3]).num_non_scoring_dice)
+    def test_num_dice_for_next_roll_with_scoring_die_is_not_zero
+      assert_equal(2, Roll.new([1, 1, 1, 2, 3]).num_dice_for_next_roll)
+    end
+
+    def test_num_dice_for_next_roll_with_no_scoring_die_is_zero
+      assert_equal(0, Roll.new([2, 3, 4, 6]).num_dice_for_next_roll)
     end
 
   end
